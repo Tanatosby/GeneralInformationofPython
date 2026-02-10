@@ -1,3 +1,13 @@
+'''
+
+Calling a JSON API
+
+In this assignment you will write a Python program somewhat similar to http://www.py4e.com/code3/opengeo.py. The program will prompt for a location, contact a web service and retrieve JSON for the web service and parse that data, and retrieve the first plus_code from the JSON. An Open Location Code is a textual identifier that is another form of address based on the location of the address.
+API End Points
+
+To complete this assignment, you should use this API endpoint that has a static subset of the Open Street Map Data.
+'''
+
 import urllib.request, urllib.parse
 import json, ssl
 import re
@@ -50,3 +60,4 @@ while True:
     location = js['features'][0]['properties']['formatted']
     print(location)
 '''
+
