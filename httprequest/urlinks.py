@@ -27,11 +27,15 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 url = input('Enter - ')
+max = int(input('Max- '))
+position = int(input('position-'))
 if len(url)<1:
-    url = 'http://py4e-data.dr-chuck.net/known_by_Fikret.html'
+    #url = 'http://py4e-data.dr-chuck.net/known_by_Fikret.html'
+    url = 'http://py4e-data.dr-chuck.net/known_by_Jerry.html'
 
 i = 0
-while i<4: 
+n = []
+while i<max: 
     html = urllib.request.urlopen(url, context=ctx).read()
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -41,7 +45,9 @@ while i<4:
     for tag in tags:
         l.append(tag.get('href', None))
 
-    url = l[2]
-    print(re.search('_(.+).html',url))
-
+    url = l[position-1]
+    n.append(re.findall('_(.+).html',url)[0].split('_')[1])
     i+=1
+print(n)
+print('last name in sequence',n[-1])
+
